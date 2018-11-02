@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+{% block content %}
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+a:link {
+    color: white;
+       text-decoration: none;
+}
+a:visited {
+    color: white;
+    text-decoration: none;
+}
+    .admission:hover {
+    -ms-transform: scale(1.5); /* IE 9 */
+    -webkit-transform: scale(1.5); /* Safari 3-8 */
+    transform: scale(1.5);
+    text-decoration: none;
+    background-color: green;
+}
+
+ .teacher:hover {
+    -ms-transform: scale(1.5); /* IE 9 */
+    -webkit-transform: scale(1.5); /* Safari 3-8 */
+    transform: scale(1.5);
+    text-decoration: none;
+    background-color: green;
+}
+.admission{
+    padding: 100px 100px;
+    background-color: #4CAF50;
+    transition: transform .2s;
+
+    margin: 0 auto;
+    decoration:none;
+    flow:left;
+    align:center;
+    color:white;
+    text-decoration: none;
+
+}
+.teacher {
+    padding: 100px 100px;
+    background-color: #4CAF50;
+    transition: transform .2s;
+    margin: 0 auto;
+    flow:left;
+    color:white;
+    text-decoration: none;
+}
+.parent {
+ padding: 100px 100px;
+    background-color: #4CAF50;
+    transition: transform .2s;
+
+    margin: 0 auto;
+    flow:left;
+    color:white;
+    text-decoration: none;
+}
+.parent:hover {
+    -ms-transform: scale(1.5); /* IE 9 */
+    -webkit-transform: scale(1.5); /* Safari 3-8 */
+    transform: scale(1.5);
+    text-decoration: none;
+    background-color: green;
+}
+.transport {
+    padding: 100px 100px;
+    background-color: #4CAF50;
+    display: block;
+    text-align: center;
+    transition: transform .2s;
+    margin: 0 auto;
+    flow:left;
+    color: #f2f2f2;
+    text-decoration: none;
+}
+.transport:hover {
+    -ms-transform: scale(1.5); /* IE 9 */
+    -webkit-transform: scale(1.5); /* Safari 3-8 */
+    transform: scale(1.5);
+    text-decoration: none;
+    background-color: green;
+}
+.lib {
+    padding: 100px 100px;
+    background-color: #4CAF50;
+    display: block;
+    text-align: center;
+    transition: transform .2s;
+    margin: 0 auto;
+    flow:left;
+    color: #f2f2f2;
+    text-decoration: none;
+}
+.lib:hover {
+    -ms-transform: scale(1.5); /* IE 9 */
+    -webkit-transform: scale(1.5); /* Safari 3-8 */
+    transform: scale(1.5);
+    text-decoration: none;
+    background-color: green;
+}
+.table{
+margin:7.5vw 22vw;
+}
+#marq{
+background-color: #333;
+display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;}
+  }
+
+@media screen and (max-width: 864px) {
+
+}
+
+
+</style>
+<div id="marq">
+<marquee onmouseover = "this.stop();" onmouseout = "this.start()">
+
+    {% for info in info_list %}
+    ||<a href="{{info.infolink}}"> {{info.Information}}</a>||
+    {% endfor %}
+</marquee>
+</div>
+
+<div style="overflow-x:auto;">
+<table class="table">
+    <tr>
+        <td><div class="admission"><a  href="\admission">Office</a></div></td>
+
+        <td><div class="teacher"><a href="\staff">Staff</a></div></td>
+    <td><div class ="lib"><a href="\digitallibrary">eLibrary</a></div></td>
+    </tr>
+    <tr><td><div class ="parent"><a href="{% url 'parentlogin' %}">Parent</a></div></td>
+        <td><div class ="transport"><a href="\Transport">Transport</a></div></td></tr>
+
+</table>
+</div>
+
+
+{% endblock %}
+</html>

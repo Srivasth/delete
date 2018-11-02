@@ -1,0 +1,6 @@
+"Notes:"
+"Please do not change the template headings"
+"Status should be one of these values: Present, Absent, On Leave, Half Day"
+"If you are overwriting existing attendance records, 'ID' column mandatory"
+"ID","Employee","Employee Name","Date","Status","Leave Type","Company","Naming Series"
+"","EMP/0001","raj","2018-02-18","","","Automaton","ATT-"

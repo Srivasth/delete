@@ -1,0 +1,35 @@
+{% block content %}
+{% load static %}
+
+<script type="text/javascript" src="staffs/js/fusioncharts.js"></script>
+<script type="text/javascript" src="staffs/js/themes/fusionchartstheme.fusion.js"></script>
+<style>
+    #options a:link {
+    color: black;
+       text-decoration: none;
+       font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+}
+#options a:visited {
+    color: black;
+    text-decoration: none;
+}
+
+</style>
+
+
+{% include "staffs/html_snippets/nav_bar.html"%}
+<ul id = "options">
+
+    <li><a href="{% url 'studymaterial' %}">StudyMaterials</a></li>
+     <li><a href="#">Classes</a></li>
+</ul>
+
+{% for staff in classes_list %}
+{% for classes in staff.classes.all %}
+<a href="otherclasses/{{classes}}">{{classes}}</a>
+{% endfor %}
+
+
+{% endfor %}
+
+{% endblock %}

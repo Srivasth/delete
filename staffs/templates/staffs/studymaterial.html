@@ -1,0 +1,97 @@
+{% block content %}
+{% load staticfiles %}
+<script type="text/javascript" src="{% static 'Admissions/js/scriptforadmission.js' %}"></script>
+
+<style>
+#documents a:link {
+    color: black;
+       text-decoration: none;
+}
+#documents a:visited {
+    color: black;
+    text-decoration: none;
+}
+
+#documents td, #admission_table th{
+border: 1px solid #ddd;
+    padding: 8px;
+}
+#documents {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+#documents tr:nth-child(even){background-color: #f2f2f2;}
+
+#documents tr:hover {background-color: #ddd;}
+#documents th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #4CAF50;
+    color: white;
+}
+.new{
+  background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 8px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 1px;
+    cursor: pointer;
+    float:right;
+
+}
+.new a:link {
+    color: black;
+       text-decoration: none;
+}
+ .new a:visited {
+    color: black;
+    text-decoration: none;
+}
+
+</style>
+
+
+{% include "staffs/html_snippets/nav_bar_studymaterial.html"%}
+<button class="new"><a href="{% url 'document_upload'%}">New</a></button>
+{% if Document_list%}
+<div  style="overflow-x:auto;">
+<table id="documents">
+    <tr>
+        <th>Document</th>
+        <th>Subject</th>
+        <th>Description</th>
+        <th>Class</th>
+        <th>Type</th>
+        <th>Uploaded Date</th>
+
+
+    </tr>
+
+    {% for Document in  Document_list %}
+    <tr>
+        <td><a href="{% url 'document_update' pk=Document.pk %}">{{Document.document}}</a></td>
+        <td>{{Document.subject}}</td>
+        <td>{{Document.description}}</td>
+        <td>{{Document.Class}}</td>
+        <td>{{Document.Document_type}}</td>
+
+        <td>{{Document.uploaded_at}}</td>
+
+    </tr>
+
+{% endfor  %}
+</table>
+    <div  style="overflow-x:auto;">
+{% else %}
+<p> No documents </p>
+
+
+{% endif %}
+
+{% endblock %}

@@ -1,0 +1,9 @@
+{% extends "admin/base_site.html" %}
+{% load i18n static %}
+
+
+{% block content %}
+  <p>Logged out!</p>
+<a href="{% url 'login'%}">Click here </a><p>to login again.</p>
+
+{% endblock %}

@@ -1,0 +1,82 @@
+
+{% block content %}
+{% load staticfiles %}
+<script type="text/javascript" src="{% static 'Admissions/js/scriptforadmission.js' %}"></script>
+
+<style>
+a:link {
+    color: black;
+       text-decoration: none;
+}
+a:visited {
+    color: black;
+    text-decoration: none;
+}
+
+#admission_table td, #admission_table th{
+border: 1px solid #ddd;
+    padding: 8px;
+
+}
+#admission_table {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+
+}
+#admission_table tr:nth-child(even){background-color: #f2f2f2;}
+
+#admission_table tr:hover {background-color: #ddd;}
+#admission_table th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #4CAF50;
+    color: white;
+}
+
+.heading{
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+
+}
+th {
+    cursor: pointer;
+}
+
+
+</style>
+
+
+<table id="admission_table">
+
+    <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Father's Name</th>
+        <th>Contact Number</th>
+        <th>Email</th>
+        <th>Date Of Birth</th>
+        <th>Address</th>
+        <th>Level</th>
+    <th>Previous School</th>
+        <th>Class </th>
+        <th>Section</th>
+
+    </tr>
+
+
+    {% for gradebook in gradebook %}
+
+    <tr>
+        <td>{{gradebook.Name}}</td>
+
+
+
+
+    </tr>
+
+    {% endfor %}
+</table>
+
+
+{% endblock %}

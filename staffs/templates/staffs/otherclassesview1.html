@@ -1,0 +1,28 @@
+
+{% if Student_list %}
+<div  style="overflow-x:auto;">
+<table id="students">
+    <tr>
+        <th>first name</th>
+        <th>last name</th>
+        <th>contact number</th>
+
+
+    </tr>
+
+    {% for Scholar in Student_list %}
+    <tr>
+        <td>{{Scholar.student_first_name}}</td>
+        <td>{{Scholar.student_last_name}}</td>
+        <td>{{Scholar.Contact_number}}</td>
+
+    </tr>
+
+{% endfor  %}
+</table>
+</div>
+    {% else %}
+<p> No Students </p>
+
+{% endif %}
+

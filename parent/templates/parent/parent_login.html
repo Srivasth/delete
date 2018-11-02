@@ -1,0 +1,95 @@
+<style>
+    .box{
+    margin:0;
+
+    position : absolute;
+    top: 50%;
+    Left : 50%;
+    transform:translate(-50%,-50%);
+    font-family: sans-serif;
+    width:400px;
+    padding:40px;
+    background: rgba(0,0,0,0.8);
+    box-sizing:border-box;
+    box-shadow: 0 15px 25px rgba(25,0,0,0.5);
+    border-radius:10px;
+
+
+    }
+.box h2{
+margin: 0 0 30px;
+padding:0;
+color:#fff;
+text-align:center;
+}
+.box .inputbox{
+position:relative;
+}
+.box .inputbox input{
+width:100%;
+padding:10px 0;
+font-size:16px;
+color:#fff;
+margin-bottom:30px;
+border: none;
+border-bottom: 1px solid #fff;
+outline:none;
+background:transparent;
+}
+.box .inputbox label{
+position:absolute;
+top:0;
+Left:0;
+padding:10px 0;
+font-size:16px;
+color:#fff;
+pointer-events:none;
+transition: .5s;
+}
+.box .inputbox input:focus ~label,
+.box .inputbox input:valid ~label{
+top: -20px;
+Left:0;
+color:#03a9f4;
+font-size:12px;
+
+}
+.button{
+background:transparent;
+border:none;
+outline:none;
+color:#fff;
+background:#03a9f4;
+padding:10px 20px;
+cursor:pointer;
+border-radius:5px;
+}
+
+
+
+</style>
+
+
+
+{% block content %}
+    <div class="box">
+        <h2>Login</h2>
+
+
+  <form method="POST" enctype="multipart/form-data">
+
+
+    {% csrf_token %}
+      <div class="inputbox">
+          <input type="text" name="username" required >
+          <label>Email or Phone</label>
+      </div>
+      <div class="inputbox">
+    <input type="password" name="Password"  required >
+          <label>Password</label>
+      </div>
+      <button class="button" type="submit">Login</button>
+
+  </form>
+    </div>
+{% endblock %}

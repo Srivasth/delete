@@ -1,0 +1,4 @@
+student_first_name,student_last_name,Fathers_name,Contact_number,Date_of_Birth,email_id,Address,Level,Previous_school,Class,Section,Password
+Raja,K,Kumar,9994884707,2000-12-26 00:00:00+00:00,aaa@gmail.com,dsfsaaf,INQUIRY,vimal,8,A,Admissions.Scholar.Date_of_Birth
+Srivasthan,R,Raju,7708157507,1997-01-26 18:29:29+00:00,srivasthanscientist@gmail.com,"25 SHAKTHI NAGAR, BANGARAMMAKANDIGAI",REGISTERED,BMHS,11,A,student
+Sridevi,R,Raju,7708157508,1997-01-26 18:29:29+00:01,srivasthanscientist@gmail.com,"26 SHAKTHI NAGAR, BANGARAMMAKANDIGAI",REGISTERED,BMHS,12,A,student

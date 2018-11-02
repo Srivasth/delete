@@ -1,0 +1,89 @@
+{% block content %}
+
+<style>
+#attendance a:link {
+    color: black;
+       text-decoration: none;
+}
+#attendance a:visited {
+    color: black;
+    text-decoration: none;
+}
+
+#attendance td, #admission_table th{
+border: 1px solid #ddd;
+    padding: 8px;
+}
+#attendance {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+#attendance tr:nth-child(even){background-color: #f2f2f2;}
+
+#attendance tr:hover {background-color: #ddd;}
+#attendance th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #4CAF50;
+    color: white;
+}
+.new{
+  background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 8px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 1px;
+    cursor: pointer;
+    float:right;
+
+}
+.new a:link {
+    color: black;
+       text-decoration: none;
+}
+ .new a:visited {
+    color: black;
+    text-decoration: none;
+}
+body{
+overflow:hidden;
+}
+</style>
+<body>
+
+{% include "staffs/html_snippets/nav_bar_attendance.html"%}
+<button class="new">New</button>
+{% if attendance_list %}
+<div  style="overflow-x:auto;">
+<table id="attendance">
+    <tr>
+        <th>Name</th>
+        <th>Total Absent</th>
+
+
+
+    </tr>
+
+    {% for Scholar in  attendance_list %}
+    <tr>
+        <td><a href="{% url 'attendanceupdateview' pk=Scholar.pk %}">{{Scholar.student_first_name}}.{{Scholar.student_last_name}}</a></td>
+        <td>{{Scholar.Absent_on.all.count}}</td>
+
+    </tr>
+
+{% endfor  %}
+</table>
+</div>
+{% else %}
+<p> You are not Class teacher of any classes </p>
+
+
+{% endif %}
+</body>
+{% endblock %}

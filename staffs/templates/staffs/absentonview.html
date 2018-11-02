@@ -1,0 +1,10 @@
+{% include "staffs/html_snippets/nav_bar_attendance.html"%}
+{% block content %}
+  <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Save</button>
+  </form>
+
+  <p><a href="{% url 'attendanceview' %}">Return to home</a></p>
+{% endblock %}

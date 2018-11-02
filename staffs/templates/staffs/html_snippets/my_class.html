@@ -1,0 +1,109 @@
+
+
+
+{% block content %}
+{% load staticfiles %}
+<script type="text/javascript" src="{% static 'Admissions/js/scriptforadmission.js' %}"></script>
+
+<style>
+#Student_record a:link {
+    color: black;
+       text-decoration: none;
+}
+#Student_record a:visited {
+    color: black;
+    text-decoration: none;
+}
+
+#Student_record td, #admission_table th{
+border: 1px solid #ddd;
+    padding: 8px;
+}
+table{
+border-collapse: collapse;
+width: 100%;}
+#Student_record {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+
+}
+#Student_record tr:nth-child(even){background-color: #f2f2f2;}
+
+#Student_record tr:hover {background-color: #ddd;}
+#Student_record th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #4CAF50;
+    color: white;
+}
+#test a{
+background-color: orange;
+    border: none;
+    color: white;
+    padding: 8px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 1px;
+    cursor: pointer;
+
+}
+</style>
+
+{% include "staffs/html_snippets/nav_bar_myclass.html"%}
+<div id="test">
+{% if staff %}
+{% for Scholar in staff %}
+{%if forloop.first %}
+{% for Tests in Scholar.Class.Tests.all%}
+    <a href="tests/{{forloop.counter}}/{{Tests}} ">{{Tests}}</a>
+
+{% endfor %}
+{% endif %}
+{% endfor %}
+</div>
+
+<div  style="overflow-x:auto;">
+<table id="Student_record">
+
+
+
+    <tr>
+        <th onclick="sortTable(0)">First Name</th>
+        <th>Last Name</th>
+        <th>Father's Name</th>
+        <th>Contact Number</th>
+        <th>Email</th>
+        <th>Gender</th>
+        <th>Date Of Birth</th>
+        <th>Address</th>
+
+    <th>Previous School</th>
+        <th>Class </th>
+
+    </tr>
+    {% for Scholar in staff %}
+    <tr>
+        <td> {{ Scholar.student_first_name }}</td>
+        <td>{{Scholar.student_last_name}}</td>
+        <td>{{Scholar.Fathers_name}}</td>
+        <td>{{Scholar.Contact_number}}</td>
+        <td>{{Scholar.email_id}}</td>
+        <td>{{Scholar.Gender}}</td>
+        <td>{{Scholar.Date_of_Birth}}</td>
+        <td>{{Scholar.Address}}</td>
+        <td>{{Scholar.Previous_school}}</td>
+        <td>{{Scholar.Class}}</td>
+    </tr>
+    {% endfor %}
+
+</table>
+</div>
+{% else %}
+    <h3>You are not Class Teacher of any class</h3>
+    {% endif %}
+
+{% endblock %}

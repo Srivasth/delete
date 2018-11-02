@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+{% block content %}
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+
+body {margin:0;font-family:Arial}
+
+.topnav {
+
+  overflow: hidden;
+  background-color: #333;
+
+
+}
+.username
+{
+float: right;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;}
+
+.topnav a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.active {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.topnav .icon {
+  display: none;
+}
+
+
+.topnav a:hover {
+  background-color: #555;
+  color: white;
+}
+
+
+.logout{
+float:right;
+}
+.hidden{
+display:none;
+}
+.sidebar{
+display:none;
+}
+
+
+
+@media screen and (max-width: 864px) {
+  .topnav a:not(.active), .dropdown .dropbtn {
+    display: none;
+  }
+  .topnav{
+  }
+  .topnav a.icon {
+    float: right;
+    display: block;
+  }
+.active{
+position:fixed;
+margin-left:50px;
+}
+.username{
+right:0px;
+
+background:#333;
+}
+.nav-btn{
+  position:fixed;
+  left:10px;
+  top:45px;
+  display:block;
+  width:48px;
+  height:48px;
+  cursor:pointer;
+  z-index:9999;
+  border-radius:50%;
+  }
+.nav-btn i{
+display:block;
+width:20px;
+height:2px;
+
+background-color:#4CAF50;
+border-radius: 2px;
+margin-left:14px;
+
+
+}
+.nav-btn i:nth-child(2){
+margin-top:4px;
+opacity:1;
+}
+.nav-btn i:nth-child(3){
+margin-top:4px;
+opacity:1;
+}
+
+#nav:checked ~ .myTopnav{
+z-index: 9990;
+opacity:1;
+}
+#nav:checked ~ .myTopnav a{
+opacity:1;
+transform: translateX(0);
+}
+
+#nav:checked ~ .sidebar{
+display:block;
+background:#333;
+color:white;
+text-align:Left;
+
+overflow-x:hidden;
+}
+.sidebar{
+transition:0.5s;
+position:absolute;
+opacity:0.95;
+width:50%;
+height:100%;
+z-index:9999;
+padding:10px 30px;
+line-height:200%;
+}
+
+
+.sidebar a:hover{
+ color: blue;
+font-size:20px;
+}
+
+.sidebar a{
+color:white;
+text-decoration:none;
+
+}
+}
+
+
+
+}
+
+</style>
+</head>
+
+<body>
+<pre>
+
+</pre>
+<input type="checkbox" id="nav" class="hidden">
+
+<div class="topnav" id="myTopnav">
+    <label for="nav" class="nav-btn">
+        <i></i>
+        <i></i>
+        <i></i>
+    </label>
+    <a href="{% url 'staffview' %}" class="active">Home</a>
+    <a href="{% url 'myclass' %}">My class</a>
+    <a href="{% url 'studymaterial'%}">StudyMaterials</a>
+    <a href="{% url 'attendanceview'%}">Attendance</a>
+    <a href="{% url 'admin:index' %}">Users Dashboard</a>
+
+
+    <div class="logout">
+    <a href="{% url 'logout'%}?next={{request.path}}">Logout</a>
+    </div>
+    <div class = "username">Welcome {{ user.get_username }}</div>
+
+
+</div>
+<div class="sidebar">
+    <div><a href="{% url 'myclass' %}">My class</a></div>
+    <div><a href="{% url 'studymaterial'%}">StudyMaterials</a></div>
+    <div><a href="{% url 'attendanceview'%}">Attendance</a></div>
+    <div><a href="{% url 'admin:index' %}">Users Dashboard</a></div>
+    <div><a href="{% url 'logout'%}?next={{request.path}}">Logout</a></div>
+</div>
+<pre>
+
+</pre>
+
+
+</body>
+{% endblock %}
+</html>

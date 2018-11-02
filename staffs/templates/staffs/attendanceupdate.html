@@ -1,0 +1,53 @@
+<style>
+#save{
+  background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 8px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 1px;
+    cursor: pointer;
+
+}
+#absent{
+  background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 8px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 1px;
+    cursor: pointer;
+
+}
+#absent a{
+text-decoration: none;
+color:white;
+
+}
+</style>
+
+
+
+{% block content %}
+
+{% include "staffs/html_snippets/nav_bar_attendance.html"%}
+
+<div class="form-row">
+    <form method="POST" class="post-form1">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" id="absent"><a href="{% url 'absentonview' %}">New Date</a></button>
+        <button type="submit" id="save">Save</button>
+    </form>
+</div>
+
+{% endblock %}
+<script type="text/javascript">
+    addEvent(window, "load", function(e) { SelectFilter.init("Absent_on", 0, "{{ STATIC_URL }}admin/"); });
+</script>
