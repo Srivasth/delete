@@ -123,7 +123,7 @@ python-openid==2.2.5
 python-social-auth==0.2.1
 python3-openid==3.1.0
 pytz==2014.9
-PyYAML==3.13
+PyYAML==5.4
 raven==5.1.1
 redis==2.10.6
 requests==2.19.1
