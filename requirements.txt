@@ -108,7 +108,7 @@ odfpy==0.9.6
 openpyxl==2.1.2
 pager==3.3
 pandas==0.23.3
-Pillow==5.2.0
+Pillow==9.0.1
 polib==1.0.5
 poyo==0.4.1
 protobuf==3.1.0
