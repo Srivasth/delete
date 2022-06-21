@@ -101,7 +101,7 @@ matplotlib==2.2.2
 medusa==0.5.4
 meld3==1.0.0
 newrelic==2.38.0.31
-numpy==1.14.5
+numpy==1.22.0
 oauth2client==4.1.2
 oauthlib==0.7.2
 odfpy==0.9.6
